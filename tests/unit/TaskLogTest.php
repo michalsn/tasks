@@ -28,16 +28,19 @@ final class TaskLogTest extends TestCase
                 '2021-01-21 12:00:00',
                 '2021-01-21 12:00:00',
                 '0.00',
+                ['first item', 'second item'],
             ],
             [
                 '2021-01-21 12:00:00',
                 '2021-01-21 12:00:01',
                 '1.00',
+                true,
             ],
             [
                 '2021-01-21 12:00:00',
                 '2021-01-21 12:05:12',
                 '312.00',
+                null,
             ],
         ];
     }
@@ -45,18 +48,18 @@ final class TaskLogTest extends TestCase
     /**
      * @dataProvider provideDuration
      *
-     * @param mixed $start
-     * @param mixed $end
-     * @param mixed $expected
+     * @param array|bool|int|string|null $output
+     *
+     * @throws Exception
      */
-    public function testDuration($start, $end, $expected)
+    public function testDuration(string $start, string $end, string $expected, $output)
     {
         $start = new Time($start);
         $end   = new Time($end);
 
         $log = new TaskLog([
             'task'     => new Task('closure', static function () {}),
-            'output'   => '',
+            'output'   => $output,
             'runStart' => $start,
             'runEnd'   => $end,
             'error'    => null,
