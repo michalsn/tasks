@@ -75,8 +75,6 @@ class TaskLog
      * Unify output to string.
      *
      * @param array<int, string>|bool|int|string|null $value
-     *
-     * @return string|null
      */
     private function setOutput($value): ?string
     {
