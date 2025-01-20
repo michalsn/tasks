@@ -75,8 +75,10 @@ class TaskLog
      * Unify output to string.
      *
      * @param array|bool|int|string|null $value
+     *
+     * @return string|null
      */
-    protected function setOutput($value): ?string
+    protected function setOutput($value)
     {
         if (is_string($value) || $value === null) {
             return $value;
