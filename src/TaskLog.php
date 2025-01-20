@@ -74,11 +74,11 @@ class TaskLog
     /**
      * Unify output to string.
      *
-     * @param array|bool|int|string|null $value
+     * @param array<int, string>|bool|int|string|null $value
      *
      * @return string|null
      */
-    protected function setOutput($value)
+    private function setOutput($value): ?string
     {
         if (is_string($value) || $value === null) {
             return $value;
