@@ -82,19 +82,19 @@ class RunResolver
                     $satisfied = true;
                 }
                 // If the value is a list
-                elseif (strpos($value, ',') !== false) {
+                elseif (str_contains($value, ',')) {
                     if ($this->isInList($nextValue, $value)) {
                         $satisfied = true;
                     }
                 }
                 // If the value is a range
-                elseif (strpos($value, '-') !== false) {
+                elseif (str_contains($value, '-')) {
                     if ($this->isInRange($nextValue, $value)) {
                         $satisfied = true;
                     }
                 }
                 // If the value is an increment
-                elseif (strpos($value, '/') !== false) {
+                elseif (str_contains($value, '/')) {
                     if ($this->isInIncrement($nextValue, $value)) {
                         $satisfied = true;
                     }
